@@ -27,7 +27,7 @@ export class AuthController {
     console.log(req.session.user);
     let result = await this.userService.handleGoogleLogin(req.user);
     req.session.user = result.userId;
-    res.redirect('content/create');
+    res.redirect('/content/create');
   }
 
   @Get('auth/login')
@@ -44,7 +44,7 @@ export class AuthController {
       });
     }
     req.session.user = result.userId;
-    res.redirect('content/create');
+    res.redirect('/content/create');
   }
   @Get('auth/signup')
   @Render('auth/signup')
