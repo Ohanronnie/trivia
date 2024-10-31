@@ -1,0 +1,74 @@
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <title>Welcome to Our Platform</title>
+    <link rel='stylesheet' href='/style.css' />
+  </head>
+  <body class='bg-blue-50'>
+    <header class='flex items-center justify-between p-6 bg-white shadow-lg'>
+      <h1 class='text-2xl font-bold text-blue-700'>OurPlatform</h1>
+      <nav>
+        <a
+          href='#features'
+          class='px-4 text-gray-600 hover:text-blue-700'
+        >Features</a>
+        <a
+          href='#about'
+          class='px-4 text-gray-600 hover:text-blue-700'
+        >About</a>
+        <a
+          href='#contact'
+          class='px-4 text-gray-600 hover:text-blue-700'
+        >Contact</a>
+        <a
+          href='/auth/login'
+          class='px-4 py-2 font-semibold text-white bg-pink-500 rounded-lg hover:bg-pink-600'
+        >Login</a>
+      </nav>
+    </header>
+
+    <section
+      class='flex flex-col items-center justify-center min-h-screen text-center bg-gradient-to-r from-blue-500 to-pink-500 text-white'
+    >
+      <h2 class='text-4xl font-bold'>Discover the Future of Interactive
+        Engagement</h2>
+      <p class='mt-4 text-lg'>Engage your followers like never before with
+        personalized, daily content and trivia.</p>
+      <div class='mt-8 space-x-4'>
+        <a
+          href='/auth/signup'
+          class='px-6 py-3 font-semibold text-blue-700 bg-white rounded-lg hover:bg-gray-100'
+        >Get Started</a>
+
+      </div>
+    </section>
+
+    <section id='features' class='py-20 bg-white'>
+      <div class='container mx-auto text-center'>
+        <h3 class='text-3xl font-bold text-blue-700'>Features</h3>
+        <div class='grid grid-cols-1 gap-8 mt-10 md:grid-cols-3'>
+          <div class='p-6 border rounded-lg shadow-lg'>
+            <h4 class='text-xl font-semibold text-blue-700'>Daily Content</h4>
+            <p class='mt-2 text-gray-600'>Share and update new content every day
+              with your audience.</p>
+          </div>
+          <div class='p-6 border rounded-lg shadow-lg'>
+            <h4 class='text-xl font-semibold text-blue-700'>Interactive Trivia</h4>
+            <p class='mt-2 text-gray-600'>Engage followers with quizzes and
+              prize-winning opportunities.</p>
+          </div>
+          <div class='p-6 border rounded-lg shadow-lg'>
+            <h4 class='text-xl font-semibold text-blue-700'>Monetization Options</h4>
+            <p class='mt-2 text-gray-600'>Generate revenue through ad placements
+              and sponsored content.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class='py-10 text-center text-gray-500 bg-gray-100'>
+      <p>© 2024 OurPlatform. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

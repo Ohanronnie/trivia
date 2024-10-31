@@ -1,0 +1,116 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Creator Trivia Landing Page</title>
+    <script src="https://kit.fontawesome.com/6f277674e8.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link href="/style.css" rel="stylesheet" />
+  </head>
+  <body class="bg-gradient-to-r from-pink-500 to-blue-500 flex flex-col items-center min-h-screen">
+    <!-- Header Section -->
+    <header class="text-center mt-10">
+      <h1 class="text-4xl font-bold text-white">Welcome to Creator Trivia</h1>
+      <p class="text-lg text-pink-200 mt-2">Engage, Play & Win Exciting Prizes!</p>
+    </header>
+
+    <div class="bg-white p-6 rounded-lg shadow-lg w-full mt-10 max-w-lg mb-8">
+      <div>
+        <img src="{{cover}}" alt="User Image" class="mx-auto justify-center w-20 h-20 rounded-full" />
+        <div class="text-center">
+          <h2 class="text-xl font-semibold text-blue-700">{{username}}</h2>
+          <p class="text-gray-600">{{bio}}</p>
+        </div>
+      </div>
+      <div class="mt-6 flex w-full space-x-4 justify-center">
+        {{#each links}}
+          <div class="w-8 h-8 p-1 bg-blue-500 rounded-full text-center text-white">
+            <a href="{{this.url}}" class="fa fa-{{this.type}} text-lg"></a>
+          </div>
+        {{/each}}
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="w-full max-w-lg p-4 bg-white rounded-xl shadow-lg">
+      <!-- Daily Content Section -->
+      <section class="mb-8">
+        <h2 class="text-2xl font-bold text-pink-700 text-center">Today's Post</h2>
+        <div class="mt-4">
+          <iframe class="w-full h-48 rounded-lg" src="{{iframe}}" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </section>
+
+      <!-- Trivia Section with Toggleable Questions -->
+      <section class="mb-8">
+        <h2 class="text-2xl font-bold text-blue-700 text-center">Daily Trivia</h2>
+        <p class="text-center text-gray-600 mt-2">Answer to win exciting prizes!</p>
+        <button id="startTrivia" class="mt-4 w-full bg-pink-600 text-white py-2 rounded-lg hover:bg-pink-500">Start Trivia</button>
+
+        <!-- Hidden Trivia Questions -->
+        <div id="triviaQuestions" class="mt-4 hidden">
+          {{#each questions}}
+            <div class="p-4 bg-gray-100 rounded-lg shadow-lg">
+              <p class="text-lg font-semibold text-gray-700">{{this.question}}</p>
+              <div class="mt-2">
+                {{#each this.options}}
+                  <button class="w-full mt-2 bg-blue-500 text-white py-1 rounded-lg">{{this}}</button>
+                {{/each}}
+              </div>
+            </div>
+          {{/each}}
+        </div>
+      </section>
+
+      <!-- Ad Section -->
+      <section class="mb-8 hidden text-center">
+        <div class="p-4 bg-pink-200 rounded-lg">
+          <p class="font-semibold text-pink-800">Sponsored Ad</p>
+          <img src="https://via.placeholder.com/300x100" alt="Ad" class="mx-auto mt-2" />
+        </div>
+      </section>
+
+      <!-- Prize Carousel -->
+      <section class="mb-8 swiper-x overflow--hidden">
+        <h3 class="text-xl font-bold text-blue-700 text-center">Win These Prizes!</h3>
+        <div class="swiper-container w-full overflow-x-hidden mt-4 flex">
+          <div class="swiper-wrapper w-full overflow-x--hidden h-full">
+            {{#each prizes}}
+              <div class="swiper-slide p-4 bg-white h-full rounded-lg shadow-lg text-center">
+                <img src="{{this}}" alt="Prize" class="mx-auto mb-2" />
+              </div>
+            {{/each}}
+          </div>
+
+        </div>
+      </section>
+    </main>
+
+    <!-- Include Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Swiper Initialization & Trivia Toggle Script -->
+    <script defer>
+      // Initialize Swiper Carousel
+      const swiper = new Swiper('.swiper-container', {
+        slidesPerView: 1,
+        spaceBetween: 15,
+        loop: true,
+        autoplay: {
+          delay: 3000,
+          disableInteraction: true
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+      });
+
+      // Trivia Section Toggle
+      document.getElementById('startTrivia').addEventListener('click', () => {
+        const triviaSection = document.getElementById('triviaQuestions');
+        triviaSection.classList.toggle('hidden');
+      });
+    </script>
+  </body>
+</html>
