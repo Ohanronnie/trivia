@@ -8,7 +8,7 @@ async function bootstrap() {
   app.setBaseViewsDir(join(__dirname, '..', 'views'));
   app.useStaticAssets(join(__dirname, '..', 'public'));
   app.useStaticAssets(join(__dirname, '..', 'uploads'));
- 
+  app.set('trust proxy', 1); 
   app.setViewEngine('hbs');
   await app.listen(process.env.PORT ?? 3000);
 }
